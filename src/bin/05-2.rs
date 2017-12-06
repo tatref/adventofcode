@@ -20,7 +20,12 @@ impl Cpu {
         let next_instruction = (self.ptr as isize + self.instructions[self.ptr]) as usize;
         let mut next_instructions_list = self.instructions.clone();
 
-        next_instructions_list[self.ptr] += 1;
+        if next_instructions_list[self.ptr] >= 3 {
+            next_instructions_list[self.ptr] += -1;
+        }
+        else {
+            next_instructions_list[self.ptr] += 1;
+        }
 
 
         if next_instruction >= next_instructions_list.len() {
@@ -82,6 +87,7 @@ impl <'a> TryFrom<&'a str> for Cpu {
 }
 
 
+#[cfg(test)]
 mod tests {
     use std::convert::TryInto;
     use std::convert::TryFrom;
@@ -115,8 +121,8 @@ mod tests {
 
     test_cpu!(test1, "(0) 3  0  1  -3", "(1) 3  0  1  -3");
     test_cpu!(test2, "(1) 3  0  1  -3", "2 (3) 0  1  -3");
-    test_cpu!(test3, "2 (3) 0  1  -3", "2  4  0  1 (-3)");
-    test_cpu!(test4, "2  4  0  1 (-3)", "2 (4) 0  1  -2");
+    test_cpu!(test3, "2 (3) 0  1  -3", "2  2  0  1 (-3)");
+    //test_cpu!(test4, "2  4  0  1 (-3)", "2 (4) 0  1  -2");
 
     #[test]
     fn escape() {
@@ -128,7 +134,7 @@ mod tests {
 
         let i = cpu.escape();
 
-        assert_eq!(i, 5);
+        assert_eq!(i, 10);
     }
 
     #[test]
