@@ -1,6 +1,6 @@
 use std::error::Error;
 
-use adventofcode2022::load_string;
+use adventofcode2023::load_string;
 
 fn compute(input: &str) -> u32 {
     let numbers: Vec<u32> = input

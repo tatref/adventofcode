@@ -1,5 +1,5 @@
 [package]
-name = "adventofcode2022"
+name = "adventofcode2023"
 version = "0.1.0"
 edition = "2021"
 
@@ -10,5 +10,6 @@ edition = "2021"
 #path = "src/lib.rs"
 
 [dependencies]
+glam = "0.24.2"
 itertools = "0.10"
-
+regex = "1.10.2"

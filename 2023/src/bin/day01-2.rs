@@ -1,6 +1,6 @@
 use std::error::Error;
 
-use adventofcode2022::load_string;
+use adventofcode2023::load_string;
 
 fn get_number_indices(line: &str, number: &str, value: u32) -> Vec<(usize, u32)> {
     let line = line.as_bytes();
