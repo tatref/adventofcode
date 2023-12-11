@@ -1,15 +1,9 @@
-use itertools::Itertools;
-use std::{
-    cmp::Ordering,
-    collections::{HashMap, HashSet},
-    error::Error,
-    str::FromStr,
-};
+use std::{collections::HashSet, error::Error, str::FromStr};
 
 use adventofcode2023::load_string;
 
 struct Card {
-    id: u64,
+    _id: u64,
     have: HashSet<u64>,
     winning: HashSet<u64>,
 }
@@ -50,12 +44,12 @@ impl FromStr for Card {
             .map(|x| x.parse().unwrap())
             .collect();
 
-        Ok(Card { id, have, winning })
+        Ok(Card {
+            _id: id,
+            have,
+            winning,
+        })
     }
-}
-
-fn compute(input: &str) -> u64 {
-    0
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -97,7 +91,7 @@ Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
 Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
 Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11";
 
-    let cards: Vec<Card> = input.lines().map(|line| line.parse().unwrap()).collect();
+    let _: Vec<Card> = input.lines().map(|line| line.parse().unwrap()).collect();
 }
 
 #[test]

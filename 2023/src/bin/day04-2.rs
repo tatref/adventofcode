@@ -1,7 +1,5 @@
-use itertools::Itertools;
 use std::{
-    cmp::Ordering,
-    collections::{HashMap, HashSet, VecDeque},
+    collections::{HashSet, VecDeque},
     error::Error,
     str::FromStr,
 };
