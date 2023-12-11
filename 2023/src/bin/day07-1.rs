@@ -89,7 +89,6 @@ impl PartialOrd for Hand {
             }
         }
 
-        unreachable!();
         None
     }
 }
